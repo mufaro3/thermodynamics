@@ -1,0 +1,216 @@
+\documentclass[12pt]{article}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{amsmath,parskip,siunitx,enumitem,physics,mhchem}
+
+\newenvironment{problem}[1]{\begin{enumerate} \item[#1] }{\end{enumerate} }
+\newenvironment{answer}{\begin{enumerate} \item[]}{\end{enumerate}}
+\DeclareSIUnit\cal{cal}
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\atm{atm}
+\DeclareSIUnit\latm{\liter \atm}
+\DeclareSIUnit\gmol{\gram\per\mol}
+\DeclareSIUnit\celsius{\degreeCelsius}
+\DeclareSIUnit\fahrenheit{\degree F}
+
+\begin{document}
+\begin{problem}{1.1}
+  Calculate the work performed by a body expanding from an initial volume of \SI{3.12}{\liter} to a final volume of \SI{4.01}{\liter} at the pressure of \SI{2.34}{\atm}.
+\end{problem}
+
+\begin{answer}
+  As the pressure is constant, the work equation simplifies from
+  \begin{equation}
+    L = \int p \dd{V}
+  \end{equation}
+  to $L = p \Delta V$, or $L = 2.34(4.01 - 3.12) = \SI{2.08}{\latm} = \SI{211}{\joule}$
+\end{answer}
+
+\begin{problem}{1.2}
+  Calculate the pressure of 30 grams of hydrogen inside a container of \SI{1}{\meter\cubed} at the temperature of \SI{18}{\celsius}
+\end{problem}
+
+\begin{answer}
+  Hydrogen gas has a molecular mass of approximately \SI{2}{\gmol}, so there is about $n=\SI{15}{\mol}$ within this box. As
+  \begin{equation}
+    pV = nRT
+  \end{equation}
+  then
+  \begin{equation*}
+    p = \frac{nRT}{V} = \SI{3.6e4}{\pascal}
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{1.3}
+  Calculate the density and specific volume of nitrogen at the temperature of \SI{18}{\celsius}.
+\end{problem}
+
+\begin{answer}
+  Specific volume $v$ and the density $\rho$ are related as inverses: $v = \rho^{-1}$. The density can be calculated with
+  \begin{equation*}
+    \rho = \frac{pM}{RT},
+  \end{equation*}
+  and if we assume the pressure to be standard atmospheric pressure of $p = \SI{1}{\atm}$, we get $\rho = \SI{1.2e-2}{\gram\per\centi\meter\cubed}$ which subsequently becomes $v = \SI{803}{\centi\meter\cubed\per\gram}$.
+\end{answer}
+
+\begin{problem}{1.4}
+  Calculate the work performed by 10 grams of oxygen expanding isothermally at \SI{20}{\celsius} from 1 to \SI{0.3}{\atm} of pressure.
+\end{problem}
+
+\begin{answer}
+  The isothermal work from pressure $p_1$ to $p_2$ is given by the equation
+  \begin{equation}
+    L = nRT \ln \frac{p_1}{p_2},
+  \end{equation}
+  and the molar mass of Oxygen gas is about $M=\SI{32}{\gmol}$ so there are $n=10/32$ \unit{\mol} of \ce{O2} present.
+\end{answer}
+
+\begin{problem}{2.1}
+  Calculate the energy variation of a system which performs \SI{3.4e8}{\erg} of work and absorbs \SI{32}{\cal} of heat.
+\end{problem}
+
+\begin{answer}
+  This can be calculated with the system energy equation
+  \begin{equation}
+    \Delta U + L = Q,
+  \end{equation}
+  which states that the variation in system energy plus the work the system performs is equal to the heat exchanged with the surroundings. This means that this becomes
+  \begin{equation*}
+    \Delta U = Q - L \approx \SI{e9}{\erg}
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{2.2}
+  How many calories are absorbed by \SI{3}{\mol} of an ideal gas expanding isothermally from the initial pressure of \SI{5}{\atm} to the final pressure of \SI{3}{\atm}, at the temperature of \SI{0}{\celsius}?
+\end{problem}
+
+\begin{answer}
+  As the energy of the system is a function of only the temperature and not the volume, the absorbed energy is equal to the work performed:
+  \begin{equation*}
+    Q = nRT \ln \frac{p_1}{p_2} \approx \SI{3.5e3}{\joule}
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{2.3}
+  One mole of a diatomic ideal gas performs a transformation from an initial state for which temperature and volume are, respectively, \SI{291}{\kelvin} and \SI{2.1e4}{cc}\footnote{$\SI{1}{cc} = \SI{1}{\centi\meter\cubed} = \SI{1}{\milli\liter}$} (\SI{2.1e-2}{\meter\cubed}) to a final state in which the temperature and volume are \SI{305}{\kelvin} and \SI{1.27e4}{cc} (\SI{1.27e-2}{\meter\cubed}). The transformation is represented on the $(V,p)$ diagram by a straight line. Find the work performed and the heat absorbed by the system.
+\end{problem}
+
+\begin{answer}
+  First, we can get the coordinates of the system and plot it on a $(V,p)$ graph by solving for the pressure. As
+  \begin{equation*}
+    p = \frac{nRT}{V}
+  \end{equation*}
+  The pressures are
+  \begin{align*}
+    p_1 &= \SI{1.15e5}{\pascal} \\
+    p_2 &= \SI{2e5}{\pascal},
+  \end{align*}
+  So, therefore, the transformation between these two points $(V_1,p_1) \to (V_2,p_2)$ has the linear function
+  \begin{align*}
+    p(V) &= p_1 + \frac{p_2 - p_1}{V_2 - V_1} (V - V_1) \\
+    &\approx 1.15 \times 10^{5} - 10^7(V - 2.1 \times 10^{-2}),
+  \end{align*}
+  and the work from the first point to the second is the definite integral between the two points along this curve
+  \begin{equation*}
+    L = \int_{V_1}^{V_2} p(V) \dd{V} = \SI{1.3e3}{\joule}
+  \end{equation*}
+  Then, from there, the variation in energy is
+  \begin{equation*}
+    \Delta U = C_V \Delta T = \frac{7}{2} R \Delta T \approx \SI{270}{\joule} 
+  \end{equation*}
+  (with $C_V = \frac{7}{2} R$ because the gas is diatomic) which means that the absorbed energy would be
+  \begin{equation*}
+    Q = \Delta U + L \approx \SI{1.57e3}{\joule}.
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{2.4}
+  A diatomic gas expands adiabatically to a volume 1.35 times larger than the initial volume. The initial temperature is \SI{18}{\celsius}. Find the final temperature.
+\end{problem}
+
+\begin{answer}
+  Remembering that $TV^{\gamma - 1}$ is constant under adiabatic expansion and that $\gamma = 7/5$, we can just solve algebraically:
+  \begin{align*}
+    T_1 V_1^{\gamma-1} &= T_2 V_2^{\gamma-1} \\
+    T_2 &= T_1 \left(\frac{V_1}{V_2}\right)^{\gamma-1} \\
+    T_2 &= T_1 \left( 1.35 \right)^{-2/5} = \SI{-15}{\celsius}
+  \end{align*}
+\end{answer}
+
+\begin{problem}{3.1}
+One mole of a monatomic gas performs a Carnot cycle between the temperatures of \SI{400}{\kelvin} and \SI{300}{\kelvin}. On the upper isothermal transformation, the initial volume is \SI{1}{\liter} and the final volume is \SI{5}{\liter}. Find the work performed during a cycle, and the amounts of heat exchanged between the two sources.
+\end{problem}
+
+\begin{answer}
+  First, the isothermal expansion occurs, with the system beginning at temperature $T_H=\SI{400}{\kelvin}$. This produces work according to the equation
+  \begin{equation}
+    L = n RT \ln \frac{V_2}{V_1},
+  \end{equation}
+  so the isothermal expansion would produce work at $T_H$ from $V_1=\SI{1}{\liter}$ to $V_{2}=\SI{5}{\liter}$:
+  \begin{equation*}
+    L_1 = n RT_H \ln \frac{V_2}{V_1} = \SI{5352}{\joule}.
+  \end{equation*}
+  State energy is only a function of temperature, so over any isothermal transformation, the energy variation is zero. That means that the work performed is equal to the heat consumed by the system:
+  \begin{equation*}
+    Q_1 = \SI{5352}{\joule}.
+  \end{equation*}
+  Next, there is the adiabatic expansion. Over the adiabatic expansion, there is no heat exchanged with the environment, and the system transitions from a temperature of $T_H$ to $T_C=\SI{300}{\kelvin}$. As this gas is monatomic, the adiabatic index is $\gamma=5/3$. For any adiabatic expansion, the work performed is
+  \begin{equation}
+    L = \frac{p_2 V_2 - p_1 V_1}{\gamma - 1} = \frac{nR(T_2 - T_1)}{1 - \gamma},
+  \end{equation}
+  so the work for the adiabatic expansion is
+  \begin{equation*}
+    L_2 = \frac{nR(T_C - T_H)}{1 - \gamma} \approx \SI{1247}{\joule}.
+  \end{equation*}
+  Next, there is an isothermal expansion, but to calculate the work performed, we need to know the volume the adiabatic expanded the system to, $V_3$. This can be calculated by knowing that $TV^{\gamma - 1}$ is constant, so
+  \begin{equation*}
+    V_3 &= V_2 \left(\frac{T_H}{T_C}\right)^{(\gamma - 1)^{-1}} = V_2 (4/3)^{2/3}.
+  \end{equation*}
+  From there, we can calculate the work for the isothermal compression. To do this, we'll first need the ending volume after the isothermal compression, which can be produced based on the volume rule (which is derived from the adiabatic processes): 
+  \begin{equation}
+    \frac{V_3}{V_2} = \frac{V_4}{V_1} = \left(\frac{T_H}{T_C}\right)^{\frac{1}{\gamma - 1}},
+  \end{equation}
+  so the ending volume $V_4$ is
+  \begin{equation*}
+    V_4 = \frac{V_3 V_1}{V_2} \approx \SI{1.2}{\liter}
+  \end{equation*}
+  thus, the work over the isothermal compression is
+  \begin{equation*}
+    L_3 = nRT_C \ln \frac{V_4}{V_3} = nRT_C \ln \frac{V_1}{V_2} = \SI{-4014}{\joule} 
+  \end{equation*}
+  then, lastly, the adiabatic compression goes from $T_C$ to $T_H$, so it produces the same (negated) work as the adiabatic expansion,
+  \begin{equation*}
+    L_4 = \SI{-1247}{J},
+  \end{equation*}
+  and, together, this means that the total work is equal to the total heat consumption:
+  \begin{equation*}
+    L = Q = L_1 + L_3 = \SI{1338}{\joule}.
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{3.2}
+  What is the maximum efficiency of a thermal engine working between an upper temperature of \SI{400}{\celsius} and a lower temperature of \SI{18}{\celsius}?
+\end{problem}
+
+\begin{answer}
+  The maximum efficiency $\eta$ is calculated by the equation
+  \begin{equation}
+    \eta \le 1 - \frac{T_C}{T_H},
+  \end{equation}
+  so the maximum efficiency would be
+  \begin{equation*}
+    \max \eta = 1 - \frac{400 + 273.15}{18 + 273.15} = \SI{56.7}{\percent}
+  \end{equation*}
+\end{answer}
+
+\begin{problem}{3.3}
+  Find the minimum amount of work needed to extract one calorie of heat from a body at the temperature of \SI{0}{\fahrenheit}, when the temperature of the environment is \SI{100}{\fahrenheit}.
+\end{problem}
+
+\begin{answer}
+  The amount of work required to extract $Q$ heart from a cold source of temperature $T_C$ with a hot environment temperature $T_H$ is
+  \begin{equation}
+    L = \frac{Q(T_H - T_C)}{T_C} \approx \SI{1532}{\joule}.
+  \end{equation}
+\end{answer}
+
+\end{document}
