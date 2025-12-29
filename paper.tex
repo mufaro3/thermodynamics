@@ -213,7 +213,7 @@ One mole of a monatomic gas performs a Carnot cycle between the temperatures of 
   \end{equation}
 \end{answer}
 
-\begin{problem}
+\begin{problem}{4.1}
   What is the entropy variation of \SI{1}{\kilo\gram} of water when raised from freezing to boiling temperature? (Assume a constant specific heat of $C_V = \SI{1}{\cal\per\gram\kelvin}$).
 \end{problem}
 
@@ -232,7 +232,7 @@ One mole of a monatomic gas performs a Carnot cycle between the temperatures of 
   \end{equation*}
 \end{answer}
 
-\begin{problem}
+\begin{problem}{4.2}
   A body obeys the equation of state
   \begin{equation}
     pV^{1.2} = 10^9 T^{1.1}.
@@ -240,8 +240,44 @@ One mole of a monatomic gas performs a Carnot cycle between the temperatures of 
   A measurement of its thermal capacity inside a container having the constant volume \SI{100}{\liter} shows that under these conditions, the thermal capacity is constant and equal to \SI{0.1}{\cal\per\kelvin}. Express the energy and the entropy of the system as functions of $T$ and $V$.
 \end{problem}
 
+\begin{problem}{5.1}
+  With the aid of the phase rule, discuss the equilibrium of a saturated solution and the solid of the dissolved substance.
+\end{problem}
+
 \begin{answer}
-  The energy of the system is 
+  This mixture is a dissolution so it contains two components and two phases, a solid element and a liquid element. By the phase rule,
+  \begin{equation*}
+    n = 2 + 2 - 2 = 2,
+  \end{equation*}
+  so the system is free with respect to both pressure and volume independently. 
+\end{answer}
+
+\begin{problem}{5.2}
+  How many degrees of freedom has the system composed of a certain amount of water and a certain amount of air? (Neglect the rare gases and the carbon dioxide contained in air.)
+\end{problem}
+
+\begin{answer}
+  Air is largely comprised of oxygen and nitrogen gas, so with the presence of water vapor, it would have 3 components but one phase (gas), so there are 4 degrees of freedom.
+\end{answer}
+
+\begin{problem}{5.3}
+  The electromotive force of a reversible electric cell, as a function of the temperature, is
+  \begin{equation*}
+    0.924 + 0.0015t + 0.0000061 t^2 \text{ volts},
+  \end{equation*}
+  $t$ being the temperature in celsius. Find the heat absorbed by the cell when one coulomb of electricity flows through it isothermally at a temperature of \SI{18}{\celsius}.
+\end{problem}
+
+\begin{answer}
+  Let the above equation be
+  \begin{equation*}
+    \varepsilon(T) = a + bT + cT^2 \text{ volts},
+  \end{equation*}
+  the absorbed heat is thereby equal to
+  \begin{equation*}
+    Q(T) = T \dv{\varepsilon}{T} = T_K(b + 2cT_C)
+  \end{equation*}
+  where $T_K$ is the temperature in kelvin and $T_C$ is the temperature in Celsius. That means that, for \SI{18}{\celsius}, this is approx. $Q(\SI{18}{\celsius}) \approx \SI{0.5}{\joule}$.
 \end{answer}
 
 \end{document}
